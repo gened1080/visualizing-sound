@@ -39,7 +39,7 @@ class VSfdtd:
         ## Read image
         imgname = input('Enter the filename of your image including extension: ')
         print('')
-        img = cv2.imread('content/visualizing-sound/' + imgname, 0)
+        img = cv2.imread('/content/visualizing-sound/' + imgname, 0)
         rows, columns = img.shape
         ar = self.c / columns
         dim = (self.c, int(rows * ar))
