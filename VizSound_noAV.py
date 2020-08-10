@@ -47,7 +47,7 @@ class VSfdtd:
         rows, columns = resimg.shape
         self.r = np.int(rows)  # number of rows
         self.c = np.int(columns)  # number of columns 
-        print('Resized the frame to', ' self.c ', 'pixels wide')
+        print('Resized the frame to ', self.c, ' pixels wide')
         print('')
         self.img_cap = self.frame_generate(resimg)
             
