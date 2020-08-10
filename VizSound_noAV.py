@@ -185,14 +185,14 @@ or enter "custom" to enter your own sound velocity and medium density''')
         ctemp = np.arange(0, self.c, 1)
         rm, cm = np.meshgrid(rtemp, ctemp)
         rc = np.int(self.r / 2)
-        cc = np.int(self.c / 2 - 30)
+        cc = np.int(self.c / 2 - 2)
         if stype == 'point':
             fwhmc = 2
             fwhmr = fwhmc
             self.gaussamp = np.exp(-((rm - rc) ** 2 / (2 * fwhmr ** 2) + (cm - cc) ** 2 / (2 * fwhmc ** 2))).T
         elif stype == 'line':
             fwhmc = 2
-            fwhmr = 16
+            fwhmr = 10
             self.gaussamp = np.exp(-((rm - rc) ** 2 / (2 * fwhmr ** 2) + (cm - cc) ** 2 / (2 * fwhmc ** 2))).T
     
     def source(self, nt):
