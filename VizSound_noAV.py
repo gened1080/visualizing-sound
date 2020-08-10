@@ -283,25 +283,26 @@ or enter "custom" to enter your own sound velocity and medium density''')
         else:
             pass
             
-def propagate_sound(fs):
-    print("To stop: click on Kernel -> Interrupt")
-    tc = 0
-    fs.update_domain()
-    fig = plt.figure(figsize=(8, 6))
-    ax = fig.add_subplot(111)
-    try:
-        while True:
-            # Update image with FDTD solution
-            fs.fdtd_update()
-            fs.source(tc)
-            if bflag == "o":
-                fs.boundary()
-            imgdisp = fs.img_cap + fs.pr + fs.mbndry
-            ax.clear()
-            ax.pcolormesh(imgdisp, cmap="gray", vmin=-1, vmax=1)
-            fig.canvas.draw()
-            tc = tc + 1
-    except KeyboardInterrupt:
-        pass    
-    ax.pcolormesh(imgdisp, cmap="gray", vmin=-1, vmax=1)
-    fig.canvas.draw()
+# def propagate_sound(fs):
+#     print("To stop: click on Kernel -> Interrupt")
+#     tc = 0
+#     fs.update_domain()
+#     fig = plt.figure(figsize=(8, 6))
+#     ax = fig.add_subplot(111)
+#     try:
+#         while True:
+#             # Update image with FDTD solution
+#             fs.fdtd_update()
+#             fs.source(tc)
+#             if bflag == "o":
+#                 fs.boundary()
+#             imgdisp = fs.img_cap + fs.pr + fs.mbndry
+#             ax.clear()
+#             ax.pcolormesh(imgdisp, cmap="gray", vmin=-1, vmax=1)
+#             fig.canvas.draw()
+#             tc = tc + 1
+#     except KeyboardInterrupt:
+#         pass    
+#     ax.pcolormesh(imgdisp, cmap="gray", vmin=-1, vmax=1)
+#     fig.canvas.draw()
+    
