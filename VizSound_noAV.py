@@ -16,8 +16,8 @@ class VSfdtd:
     def __init__(self):
         
         ## Initialize Variables
-        self.c = 160
-        self.r = 120
+        self.c = 240
+        self.r = 180
         temp = (self.r, self.c + 1)
         self.vx = np.zeros(temp)  # velocity along x
         self.mvx = np.zeros(temp, dtype=np.int8)
