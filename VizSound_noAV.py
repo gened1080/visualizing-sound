@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 import sys
-import pyaudio
+# import pyaudio
 
 # All flags
 dflag = ''  # sound setup flag: d=default, c=custom
@@ -47,7 +47,7 @@ class VSfdtd:
         rows, columns = resimg.shape
         self.r = np.int(rows)  # number of rows
         self.c = np.int(columns)  # number of columns 
-        print('Resized the frame to 640 pixels wide')
+        print('Resized the frame to', ' self.c ', 'pixels wide')
         print('')
         self.img_cap = self.frame_generate(resimg)
             
