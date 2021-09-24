@@ -10,6 +10,7 @@ mflag = ''  # medium with different temperature flag: y=yes, n=no
 sflag = ''  # Sound source flag: a=record, n=numeric
 vflag = ''  # video flag: w=webcam, i=image
 bflag = ''  # Boundary flag: c=closed, o=open
+iflag = ''  # image flag: y=yes, n=no
 
 class VSfdtd:
     
@@ -53,15 +54,18 @@ class VSfdtd:
             
     def frame_generate(self, img):
         # Image cleanup
-        blurimg = cv2.medianBlur(img, 11)
-        threshimg = cv2.adaptiveThreshold(blurimg, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 7, 3)
-        normimg = threshimg / 256.0
-        
-        # Clean up edges
-        normimg[0:5, 0:self.c] = 1
-        normimg[self.r - 5:self.r, 0:self.c] = 1
-        normimg[0:self.r, 0:5] = 1
-        normimg[0:self.r, self.c - 5:self.c] = 1
+        iflag = input('Is your input image binary? (y/n): ')
+        if iflag == 'y':
+            normimg = img / 256.0
+        else:
+            blurimg = cv2.medianBlur(img, 11)
+            threshimg = cv2.adaptiveThreshold(blurimg, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 7, 3)
+            normimg = threshimg / 256.0
+            # Clean up edges
+            normimg[0:5, 0:self.c] = 1
+            normimg[self.r - 5:self.r, 0:self.c] = 1
+            normimg[0:self.r, 0:5] = 1
+            normimg[0:self.r, self.c - 5:self.c] = 1
         
         # Create rigid material
         imgtemp = np.pad(normimg, ((0, 0), (0, 1)), "constant", constant_values=1.0)
