@@ -46,8 +46,8 @@ class VSfdtd:
         dim = (self.c, int(rows * ar))
         resimg = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
         rows, columns = resimg.shape
-        self.r = np.int(rows)  # number of rows
-        self.c = np.int(columns)  # number of columns 
+        self.r = np.int_(rows)  # number of rows
+        self.c = np.int_(columns)  # number of columns 
         print('Resized the frame to ', self.c, ' pixels wide')
         print('')
         self.img_cap = self.frame_generate(resimg)
@@ -188,8 +188,8 @@ or enter "custom" to enter your own sound velocity and medium density''')
         rtemp = np.arange(0, self.r, 1)
         ctemp = np.arange(0, self.c, 1)
         rm, cm = np.meshgrid(rtemp, ctemp)
-        rc = np.int(self.r / 2)
-        cc = np.int(self.c / 2 - 2)
+        rc = np.int_(self.r / 2)
+        cc = np.int_(self.c / 2 - 2)
         if stype == 'point':
             fwhmc = 2
             fwhmr = fwhmc
@@ -275,8 +275,8 @@ or enter "custom" to enter your own sound velocity and medium density''')
         if mflag == 'y':
             cm = self.c
             rm = self.r
-            c1 = np.int(cm/2) + np.int(cm/8)
-            c2 = c1 + np.int(cm/8)
+            c1 = np.int_(cm/2) + np.int_(cm/8)
+            c2 = c1 + np.int_(cm/8)
             self.mvx[40:rm - 40, c1:c2] = 2
             self.mvy[40:rm - 40, c1:c2] = 2
             self.mpr[40:rm - 40, c1:c2] = 2
